@@ -6,8 +6,8 @@ RUN apt-get update -q && \
     apt-get autoremove -y && \
     apt-get clean
 WORKDIR /liquid
-VOLUME /root/.liquid
 ADD ./liquid /liquid
 RUN ./autogen.sh && ./configure --enable-static --disable-shared --disable-tests --with-incompatible-bdb
 RUN make -j4
+VOLUME /root
 CMD /liquid/src/liquidd -validatepegin=0 -rpcuser=alice -rpcpassword=bob
