@@ -9,8 +9,7 @@ RUN apt-get update && \
 WORKDIR /loyaltytoken
 
 RUN yarn global add @vue/cli
-RUN pwd && ls -l && yarn install
 
 EXPOSE 8080
-CMD tmux new-session -d -c '/loyaltytoken/ui' 'yarn serve' && \
+CMD tmux new-session -d -c '/loyaltytoken/ui' 'yarn install && yarn serve' && \
     while true; do sleep 3600; done
