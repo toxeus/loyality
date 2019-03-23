@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 WORKDIR /loyaltytoken
 
-EXPOSE 8000
+RUN yarn global add @vue/cli
 
-CMD tmux new-session -d -c '/loyaltytoken' 'bash' && \
+CMD tmux new-session -d -c '/loyaltytoken/ui' 'yarn serve' && \
     while true; do sleep 3600; done
