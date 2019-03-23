@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    liquidd:
+        build:
+            context: .
+            dockerfile: Dockerfile.liquid
+    loyality:
+        build:
+            context: .
+        volumes:
+            - '.:/loyalitytoken'
+    nginx:
+        build:
+            context: ./nginx
+        ports:
+            - '8888:8888'
+        depends_on:
+            - 'loyality'

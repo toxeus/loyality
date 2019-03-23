@@ -1,0 +1,13 @@
+FROM ubuntu:18.04
+
+RUN apt-get update -q && \
+    apt-get install -qy  git make g++ autoconf libtool pkg-config bsdmainutils libboost-all-dev libssl-dev libevent-dev libdb++-dev && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get autoremove -y && \
+    apt-get clean
+WORKDIR /liquid
+VOLUME /root/.liquid
+ADD ./liquid /liquid
+RUN ./autogen.sh && ./configure --enable-static --disable-shared --disable-tests --with-incompatible-bdb
+RUN make -j4
+CMD /liquid/src/liquidd
