@@ -5,6 +5,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile.liquid
+        ports:
+            - '7041:7041'
     loyalty:
         build:
             context: .
