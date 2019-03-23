@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "bitcoin-core": "^2.0.0",
-    "vue": "^2.6.6"
+    "vue": "^2.6.6",
+    "vue-material": "^1.0.0-beta-10.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
