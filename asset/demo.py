@@ -46,6 +46,7 @@ def do_transfers(cfg, rpc_conn, asset):
         address = call_rpc(rpc_conn, 'getnewaddress')
         address_info = call_rpc(rpc_conn, 'validateaddress', address)
         privkey = call_rpc(rpc_conn, 'dumpprivkey', address)
+        print("privkey:{0}".format(privkey))
         addresses.append((address_info, privkey))
 
     transfer_amounts = {addr[0]['unconfidential']: 1.0 for addr in addresses}
