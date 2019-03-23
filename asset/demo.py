@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import argparse
 import os
+import pickle
 from configparser import ConfigParser
 
 import qrcode
@@ -65,4 +66,5 @@ if __name__=='__main__':
 
     issuance = do_issuance(cfg, rpc_conn)
     addresses, txid = do_transfers(cfg, rpc_conn, issuance['asset'])
+    pickle.dump((issuance, addresses, txid), open('asset.p','wb'))
     generate_qr_codes([addr[1] for addr in addresses], 'my_asset_')
