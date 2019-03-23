@@ -5,13 +5,13 @@ services:
         build:
             context: .
             dockerfile: Dockerfile.liquid
-        ports:
-            - '7041:7041'
     loyalty:
         build:
             context: .
         volumes:
             - '.:/loyaltytoken'
+        ports:
+            - '8080:8080'
     nginx:
         build:
             context: ./nginx

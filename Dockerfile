@@ -10,5 +10,6 @@ WORKDIR /loyaltytoken
 
 RUN yarn global add @vue/cli
 
+EXPOSE 8080
 CMD tmux new-session -d -c '/loyaltytoken/ui' 'yarn serve' && \
     while true; do sleep 3600; done
