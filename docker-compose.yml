@@ -5,15 +5,15 @@ services:
         build:
             context: .
             dockerfile: Dockerfile.liquid
-    loyality:
+    loyalty:
         build:
             context: .
         volumes:
-            - '.:/loyalitytoken'
+            - '.:/loyaltytoken'
     nginx:
         build:
             context: ./nginx
         ports:
             - '8888:8888'
         depends_on:
-            - 'loyality'
+            - 'loyalty'
