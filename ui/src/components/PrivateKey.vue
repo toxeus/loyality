@@ -22,7 +22,8 @@ export default {
         }
     },
     methods: {
-        submit_privkey: function() {
+        submit_privkey: function(e) {
+            e.preventDefault();
             const client = new Client({ port: 8888, username: 'alice', password: 'bob' });
             (async () => await client.importPrivKey(`${this.dprivkey}`))();
             let headers = new Headers();
