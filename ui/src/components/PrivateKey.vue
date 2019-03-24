@@ -4,7 +4,9 @@
        Private key: <input v-model="dprivkey"><br>
        Address: <input v-model="daddress"><br>
        Blinding key: <input v-model="dblindingkey"><br>
-        <button v-on:click="submit_privkey">Submit</button>
+        <md-button class="md-icon-button md-primary md-raised" v-on:click="submit_privkey">
+            <md-icon>add</md-icon>
+        </md-button>
     </form>
     </div>
 </template>

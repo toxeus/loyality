@@ -1,7 +1,7 @@
 <template>
     <div id='outer'><div id='middle'>
     <div id="app">
-        <md-card class="md-primary" md-theme="purple-card" md-with-hover>
+        <md-card md-with-hover>
             <md-ripple>
                 <md-card-header>
                     <div class="md-title"><Balance/></div>
