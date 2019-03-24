@@ -1,9 +1,18 @@
 <template>
     <div class="privkey">
-    <form>
-       Private key: <input v-model="dprivkey"><br>
-       Address: <input v-model="daddress"><br>
-       Blinding key: <input v-model="dblindingkey"><br>
+    <form class="md-layout">
+        <md-field>
+            <label for="privkey">Private Key</label>
+            <md-input name="privkey" id="privkey" v-model="dprivkey"/>
+        </md-field>
+        <md-field>
+            <label for="address">Address</label>
+            <md-input name="address" id="address" v-model="daddress"/>
+        </md-field>
+        <md-field>
+            <label for="blindingkey">Blinding Key</label>
+            <md-input name="blindingkey" id="blindingkey" v-model="dblindingkey"/>
+        </md-field>
         <md-button class="md-icon-button md-primary md-raised" v-on:click="submit_privkey">
             <md-icon>add</md-icon>
         </md-button>
@@ -18,9 +27,9 @@ export default {
     name: 'PrivateKey',
     data() {
         return {
-          dprivkey: "L5QBsFQDHff4grRWJUGRdnVZ7BeHYtBsHnokBYbKLQ5UKYgH2YzF",
-          daddress: "VTpxwbfyAvfZPvJHZPHLp3p88L2hWpwuXdRLxqHmmHNFZWGx6ZxxZQxt2MTWAXcNpNjxYNB7bBvbYdkH",
-          dblindingkey: "017e1b2c1540e06d80c2b662ac59c2f17eb715280fa6e979cf375f1f0e9d580f"
+          dprivkey: "",
+          daddress: "",
+          dblindingkey: ""
         }
     },
     methods: {
