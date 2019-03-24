@@ -38,7 +38,7 @@ def do_issuance(cfg, rpc_conn):
 
 def do_transfers(cfg, rpc_conn, asset):
     n = int(cfg.get('TRANSFER', 'n'))
-    amount = int(cfg.get('TRANSFER', 'amount'))
+    amount = float(cfg.get('TRANSFER', 'amount'))
     print("Transferring {0} units of asset {1} to {2} recipients each".format(amount, asset, n))
 
     addresses = []
@@ -49,7 +49,7 @@ def do_transfers(cfg, rpc_conn, asset):
         print("privkey:{0}".format(privkey))
         addresses.append((address_info, privkey))
 
-    transfer_amounts = {addr[0]['unconfidential']: 1.0 for addr in addresses}
+    transfer_amounts = {addr[0]['unconfidential']: amount for addr in addresses}
     asset_tags = {addr[0]['unconfidential']: asset for addr in addresses}
     txid = call_rpc(rpc_conn, 'sendmany', "", transfer_amounts, 1, "", [], asset_tags)
     return addresses, txid
