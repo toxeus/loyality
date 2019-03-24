@@ -57,6 +57,7 @@ export default {
 
 body {
   background-color: #f5f5f5;
+  background-image: url('~@/assets/background.jpg');
 }
 
 </style>
