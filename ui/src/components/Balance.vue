@@ -19,7 +19,7 @@ export default {
     mounted() {
         this.timer = setInterval(function () {
             const client = new Client({ port: 8888, username: 'alice', password: 'bob' });
-            (async () => this.balance = await client.getBalance('"*"'))();
+            (async () => this.balance = await client.getBalance(''))();
         }.bind(this), 1000);
     }
 }
